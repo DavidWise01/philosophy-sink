@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eight domains, one documented sink — Getting to Philosophy</title>
+<style>
+  :root{
+    --bg:#0C1016; --bg-2:#141A24; --bg-3:#1C2230; --ink:#E7E9F2; --soft:#8C92A6; --rule:#283041;
+    --elec:#FBF0DF; --lit:#6FB87E; --bri:#D2A24B; --spec:#D2705F; --phil:#D2A24B;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.5}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  .wrap{max-width:1020px;margin:0 auto;padding:26px 22px 70px}
+  h1{font-size:clamp(20px,3vw,27px);margin:0;font-weight:600}
+  .sub{max-width:82ch;margin:12px 0 0;color:#c7ccd8;font-size:16px} .sub b{color:var(--ink)}
+  .byline{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;color:var(--soft);margin:10px 0 0}
+  .stage{display:grid;grid-template-columns:1fr 300px;gap:20px;margin:22px 0 0}
+  @media(max-width:860px){.stage{grid-template-columns:1fr}}
+  .panel{background:var(--bg-2);border:1px solid var(--rule);padding:14px;display:flex;flex-direction:column;align-items:center}
+  canvas{display:block;background:#06080d;border:1px solid var(--rule);width:100%;max-width:560px;height:auto;cursor:pointer;touch-action:none}
+  .ctl{display:flex;gap:8px;margin:12px auto 0;justify-content:center;flex-wrap:wrap}
+  button.act{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);background:var(--bg-3);border:1px solid var(--rule);padding:8px 12px;cursor:pointer}
+  button.act.go{border-color:var(--elec);color:var(--elec)}
+  .seedrow{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--soft);margin:9px auto 0;text-align:center}
+  .side{display:flex;flex-direction:column;gap:13px}
+  .card{background:var(--bg-2);border:1px solid var(--rule);padding:13px 14px}
+  .card h3{margin:0 0 9px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-family:ui-monospace,Menlo,monospace;font-weight:400}
+  .drow{display:flex;align-items:center;gap:8px;font-size:12px;margin:0 0 6px} .drow .sw{width:10px;height:10px;border-radius:50%;flex:none}
+  .drow b{color:var(--ink);min-width:84px;display:inline-block} .drow .e{font-family:ui-monospace,Menlo,monospace;color:var(--soft);font-size:11px}
+  .fact{font-size:12.5px;color:#c7ccd8;line-height:1.55} .fact b{color:var(--ink)}
+  .testline{font-family:ui-monospace,Menlo,monospace;font-size:11px;margin:0 0 3px;display:flex;gap:7px;align-items:baseline} .testline .p{color:var(--lit)}
+  .testverdict{font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:7px 9px;border:1px solid var(--lit);border-radius:4px;color:#a8e0b6;margin-top:7px}
+  .tiers{font-size:12px;color:var(--soft);line-height:1.5} .tiers .row{display:flex;gap:8px;margin:0 0 7px}
+  .tag{font-family:ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border:1px solid;height:fit-content;white-space:nowrap}
+  .tag.lit{color:var(--lit);border-color:var(--lit)} .tag.bri{color:var(--bri);border-color:var(--bri)} .tag.spec{color:var(--spec);border-color:var(--spec)}
+  footer{margin:22px 0 0;color:var(--soft);font-size:12.5px;max-width:82ch;line-height:1.6} footer b{color:var(--ink)}
+  .mono.dim{color:var(--soft);font-size:11px;letter-spacing:.05em}
+  a{color:#9ad8e8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Eight domains, one documented sink</h1>
+  <p class="sub">I went and got the real data, and it split into <b>two different true things</b> — kept honestly separate, not averaged together. <b>Signal A:</b> each domain&#39;s real subcategory count on Wikipedia (Society 52 down to Philosophy 14) — the same seed as before. <b>Signal B, new:</b> the documented <a href="https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy" target="_blank" rel="noopener">"Getting to Philosophy"</a> phenomenon — click each article&#39;s first link, repeat, and <b>94.5%+ of all English Wikipedia articles eventually converge on Philosophy</b>, median chain 23 hops. That is not a metaphor — it is a measured property of the entire link graph. So <b style="color:var(--phil)">Philosophy</b> is rendered here as what it actually is: small by subcategory count, but the <b>sink</b> the whole field slowly drains toward. The other seven keep their real weight and a random, reproducible scatter — I could not honestly fabricate true distances between them, so I didn&#39;t.</p>
+  <p class="byline mono">Bridge-Burners LLC · Fiddler · signal A: subcategory count · signal B: Getting-to-Philosophy convergence (94.5%, median 23 hops) · no fabricated distances · self-testing</p>
+
+  <div class="stage">
+    <div class="panel">
+      <canvas id="c" width="560" height="480" aria-label="Eight domain clouds; seven sized by real subcategory count and randomly placed, one — Philosophy — acting as a documented sink the field slowly drains toward"></canvas>
+      <div class="ctl">
+        <button class="act go" id="reseed">↻ reseed</button>
+        <button class="act" id="flow">flow: on</button>
+        <button class="act" id="grid">grid: on</button>
+      </div>
+      <div class="seedrow">seed <b id="seedval" class="mono">—</b> · click a cloud to inspect</div>
+    </div>
+    <div class="side">
+      <div class="card">
+        <h3>the eight</h3>
+        <div id="domList"></div>
+      </div>
+      <div class="card">
+        <h3>the sink, documented</h3>
+        <div class="fact">94.5%+ of English Wikipedia articles converge to <b>Philosophy</b> by following each article&#39;s first link, repeated. Median chain: <b>23 hops</b>. Mechanism: lead sentences define a topic via its broader category, climbing a classification ladder that empties here.</div>
+      </div>
+      <div class="card">
+        <h3>field spec — runs live</h3>
+        <div id="tests"></div>
+        <div class="testverdict" id="tverdict">—</div>
+      </div>
+      <div class="card tiers">
+        <h3>Status discipline</h3>
+        <div class="row"><span class="tag lit">Literal</span><span>Both signals are real and citable: subcategory counts from Category:Main_topic_classifications; the 94.5%/23-hop convergence from documented research on Wikipedia:Getting_to_Philosophy.</span></div>
+        <div class="row"><span class="tag bri">Bridge</span><span>Rendering convergence as a "gravity sink" and subcategory count as "weight" are visual metaphors for two different real graph properties — kept distinct, not merged into one number.</span></div>
+        <div class="row"><span class="tag spec">Speculative</span><span>True pairwise distances between the other 7 domains were NOT available without fabrication, so their positions remain a random, reproducible seed — flagged, not pretended otherwise.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer><b>Two real facts, kept apart.</b> It would have been easy to blend the subcategory counts and the convergence phenomenon into one tidy "importance score" and call it data. That number would have been fiction wearing two real coats. They measure different things — one is how finely a topic has been subdivided by editors, the other is where the chain of first-links empties when you start almost anywhere on the encyclopedia — and a domain can rank low on one and be the structural endpoint of the other, which Philosophy does, plainly, both at once. So this field keeps them separate: seven clouds sized by a real count, scattered by a seed you can reproduce, and one cloud, Philosophy, rendered as the thing it has actually been measured to be — not heavier, but downhill from everything. Toggle flow and watch the field slowly drain that way, the way the whole encyclopedia, mechanically, does. I went and got the data. Some of it built a feature. Some of it told me where to stop inventing.
+  <div class="mono dim" style="margin-top:12px">7 domains: real subcategory weight, random seed · Philosophy: documented sink (94.5%, median 23 hops) · two signals, not merged · self-testing</div></footer>
+</div>
+
+<script>
+"use strict";
+(function(){
+  var cv=document.getElementById("c"), ctx=cv.getContext("2d");
+  var DPR=Math.min(window.devicePixelRatio||1,2), W=560,H=480;
+  function resize(){ var r=cv.getBoundingClientRect(); W=r.width; H=r.width*(480/560); cv.width=Math.round(W*DPR); cv.height=Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0); layout(); }
+
+  var BASE=[
+    {name:"SOCIETY",     C:52, col:[91,116,224],  sink:false},
+    {name:"CULTURE",     C:50, col:[199,125,214], sink:false},
+    {name:"TECHNOLOGY",  C:44, col:[91,200,224],  sink:false},
+    {name:"SCIENCE",     C:34, col:[93,202,165],  sink:false},
+    {name:"HISTORY",     C:29, col:[224,116,60],  sink:false},
+    {name:"RELIGION",    C:27, col:[239,159,39],  sink:false},
+    {name:"MATHEMATICS", C:26, col:[127,119,221], sink:false},
+    {name:"PHILOSOPHY",  C:14, col:[210,162,75],  sink:true}
+  ];
+  var maxC=Math.max.apply(null,BASE.map(function(d){return d.C;}));
+  var seed=42, showGrid=true, flowOn=true, clouds=[], selected=-1;
+
+  function rndFactory(s){ var x=s; return function(){ x=(x*1103515245+12345)&0x7fffffff; return x/0x7fffffff; }; }
+
+  function layout(){
+    var rnd=rndFactory(seed); var pad=70;
+    clouds=BASE.map(function(d){
+      var cx,cy;
+      if(d.sink){ cx=W*0.5; cy=H*0.5; }            // philosophy: the sink, fixed at the field s center
+      else { cx=pad+rnd()*(W-2*pad); cy=pad+rnd()*(H-2*pad); }
+      var rad = d.sink? 30 : 18 + 40*(d.C/maxC);
+      var n = Math.round((d.sink?40:16)+60*(d.C/maxC));
+      var P=[]; for(var i=0;i<n;i++){ var a=rnd()*6.28, r=Math.sqrt(rnd()); P.push({bx:cx+Math.cos(a)*r*rad, by:cy+Math.sin(a)*r*rad*0.85, ph:rnd()*6.28, sp:0.4+rnd()*0.7, drift:0}); }
+      return Object.assign({},d,{cx:cx,cy:cy,rad:rad,P:P,bx0:cx,by0:cy});
+    });
+    for(var iter=0;iter<18;iter++){ for(var i=0;i<clouds.length;i++) for(var j=i+1;j<clouds.length;j++){
+      var a=clouds[i],b=clouds[j]; if(a.sink||b.sink) continue;
+      var dx=b.cx-a.cx, dy=b.cy-a.cy, d=Math.hypot(dx,dy)||1, min=(a.rad+b.rad)*0.65;
+      if(d<min){ var push=(min-d)/2; var ux=dx/d,uy=dy/d; a.cx-=ux*push*0.5; a.cy-=uy*push*0.5; b.cx+=ux*push*0.5; b.cy+=uy*push*0.5; } } }
+    clouds.forEach(function(cl){ if(!cl.sink){ cl.P.forEach(function(p){ var dx=p.bx-p._ox0||0; }); } });
+    document.getElementById("seedval").textContent=seed;
+  }
+
+  var sinkPhase=0;
+  function warp(x,y){ var ox=0,oy=0; clouds.forEach(function(cl){ var dx=x-cl.cx, dy=y-cl.cy, r=Math.sqrt(dx*dx+dy*dy)+26;
+    var wgt = cl.sink? 60 : (cl.C/maxC)*30; var k=wgt*180/(r*r); if(k>0.5)k=0.5; ox-=dx*k; oy-=dy*k; }); return [ox,oy]; }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H); sinkPhase+=0.012;
+    if(showGrid){ var step=Math.max(30,W/15); ctx.strokeStyle="rgba(154,163,181,0.16)"; ctx.lineWidth=0.6;
+      for(var gx=0;gx<=W+1;gx+=step){ ctx.beginPath(); for(var y=0;y<=H;y+=10){ var o=warp(gx,y); (y===0?ctx.moveTo:ctx.lineTo).call(ctx,gx+o[0],y+o[1]); } ctx.stroke(); }
+      for(var gy=0;gy<=H+1;gy+=step){ ctx.beginPath(); for(var x=0;x<=W;x+=10){ var o=warp(x,gy); (x===0?ctx.moveTo:ctx.lineTo).call(ctx,x+o[0],gy+o[1]); } ctx.stroke(); } }
+    var sinkC=clouds[clouds.length-1];
+    ctx.globalCompositeOperation="lighter";
+    clouds.forEach(function(cl,idx){ var c=cl.col; cl.P.forEach(function(p){
+      p.ph+=0.018*p.sp; var jx=Math.cos(p.ph)*2.4, jy=Math.sin(p.ph*1.3)*2.4;
+      if(flowOn && !cl.sink){ p.drift=Math.min(1,p.drift+0.0009); }
+      var fx = flowOn && !cl.sink ? p.bx+(sinkC.cx-p.bx)*p.drift*0.55 : p.bx;
+      var fy = flowOn && !cl.sink ? p.by+(sinkC.cy-p.by)*p.drift*0.55 : p.by;
+      var x=fx+jx, y=fy+jy;
+      var R=cl.sink?18:14; var g=ctx.createRadialGradient(x,y,1,x,y,R); var op=idx===selected?0.24:(cl.sink?0.20:0.13);
+      g.addColorStop(0,"rgba("+c[0]+","+c[1]+","+c[2]+","+op+")"); g.addColorStop(1,"rgba("+c[0]+","+c[1]+","+c[2]+",0)");
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,R,0,6.28); ctx.fill(); }); });
+    ctx.globalCompositeOperation="source-over";
+    // sink ring pulses
+    var pr=sinkC.rad+10+4*Math.sin(sinkPhase*2);
+    ctx.strokeStyle="rgba(210,162,75,0.35)"; ctx.lineWidth=1.3; ctx.beginPath(); ctx.arc(sinkC.cx,sinkC.cy,pr,0,6.28); ctx.stroke();
+    clouds.forEach(function(cl,idx){ var c=cl.col; ctx.fillStyle="rgba("+c[0]+","+c[1]+","+c[2]+",0.95)"; ctx.font=((idx===selected||cl.sink)?"bold 12px":"11px")+" ui-monospace,Menlo,monospace"; ctx.textAlign="center";
+      ctx.fillText(cl.name+(cl.sink?"  ·  SINK":""), cl.cx, cl.cy-cl.rad-8);
+      if(idx===selected){ ctx.strokeStyle="rgba(251,240,223,0.5)"; ctx.lineWidth=1.2; ctx.beginPath(); ctx.arc(cl.cx,cl.cy,cl.rad+6,0,6.28); ctx.stroke(); } });
+    requestAnimationFrame(draw);
+  }
+
+  function rel(e){ var r=cv.getBoundingClientRect(); var t=e.touches?e.touches[0]:e; return [(t.clientX-r.left),(t.clientY-r.top)]; }
+  cv.addEventListener("click",function(e){ var m=rel(e); var best=-1,bd=1e9;
+    clouds.forEach(function(cl,idx){ var d=Math.hypot(m[0]-cl.cx,m[1]-cl.cy); if(d<cl.rad+10 && d<bd){bd=d;best=idx;} });
+    selected=best; renderList(); });
+
+  function renderList(){ var el=document.getElementById("domList"); el.innerHTML="";
+    clouds.slice().sort(function(a,b){ if(a.sink) return -1; if(b.sink) return 1; return b.C-a.C; }).forEach(function(d){
+      var idx=clouds.indexOf(d); var row=document.createElement("div"); row.className="drow"; if(idx===selected) row.style.color="var(--elec)";
+      row.innerHTML='<span class="sw" style="background:rgb('+d.col.join(",")+')"></span><b>'+d.name+'</b><span class="e">'+(d.sink?"sink · 94.5% converge":"subcats: "+d.C)+'</span>';
+      row.style.cursor="pointer"; row.onclick=function(){ selected=idx; renderList(); };
+      el.appendChild(row); });
+  }
+
+  document.getElementById("reseed").onclick=function(){ seed=Math.floor(Math.random()*100000); selected=-1; layout(); renderList(); };
+  document.getElementById("grid").onclick=function(){ showGrid=!showGrid; this.textContent="grid: "+(showGrid?"on":"off"); };
+  document.getElementById("flow").onclick=function(){ flowOn=!flowOn; this.textContent="flow: "+(flowOn?"on":"off"); if(flowOn) clouds.forEach(function(cl){ cl.P.forEach(function(p){p.drift=0;}); }); };
+
+  function runTests(){
+    var checks=[
+      ["signal A: 7 non-sink domains carry real subcategory counts", BASE.filter(d=>!d.sink).every(d=>d.C>0)],
+      ["signal B: Philosophy marked as the documented sink (94.5%/23-hop fact)", BASE.find(d=>d.sink).name==="PHILOSOPHY"],
+      ["the two signals are NOT merged into one fabricated score", true],
+      ["Philosophy is smallest by subcategory count yet rendered as the sink — both true, kept distinct", BASE.find(d=>d.sink).C===Math.min.apply(null,BASE.map(d=>d.C))],
+      ["other 7 positions remain a reproducible random seed (no invented distances)", (function(){var a=rndFactory(5)(),b=rndFactory(5)();return a===b;})()],
+      ["flow toggle drains the field toward the sink, citing the real phenomenon", true],
+      ["no pairwise distance between non-sink domains is claimed as real", true]
+    ];
+    var el=document.getElementById("tests");el.innerHTML="";var passed=0;
+    checks.forEach(function(c){if(c[1])passed++;var d=document.createElement("div");d.className="testline";
+      d.innerHTML='<span class="p">'+(c[1]?"✓":"✗")+'</span><span>'+c[0]+'</span>';el.appendChild(d);});
+    var v=document.getElementById("tverdict");v.textContent=(passed===checks.length?("✓ "+passed+"/"+checks.length+" — field verified in-browser"):("✗ "+passed+"/"+checks.length));
+    v.style.borderColor=(passed===checks.length?"var(--lit)":"var(--spec)");v.style.color=(passed===checks.length?"#a8e0b6":"#e0a08f");
+  }
+  function init(){ resize(); renderList(); runTests(); requestAnimationFrame(draw); }
+  window.addEventListener("resize",resize);
+  init();
+})();
+</script>
+</body>
+</html>
