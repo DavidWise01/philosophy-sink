@@ -1,0 +1,9 @@
+ROOT0-DLW-CHAIN-v1
+index : 290
+slug  : philosophy-sink
+seal  : 4fc72f30b00d7ffde501c8b94baa02382abc8a40f49db13d2c566f36ab90aee7
+prev  : ec7b41b7598be0cc51866ecc2c95fc20f100860c41421ea25803a0ba953d1ce2
+link  : ad3a7ff25ed8c30fd296417ce2a55cf7fb697dc0f6aa85334d6192594d0a59bc
+head  : 3447d3a0533aaf1e29a8bdc67a9774884fb3ae9dbc8a17064b7a008ca3c4ec90
+
+— the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
